@@ -7,22 +7,22 @@
 #   By: ariandri <ariandri@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/29 14:50:14 by ariandri            #+#    #+#            #
-#   Updated: 2026/05/22 15:31:23 by ariandri           ###   ########.fr      #
+#   Updated: 2026/06/06 11:52:25 by ariandri           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class Plant:
     class Statistics:
-        def __init__(self):
+        def __init__(self) -> None:
             self.grow_calls = 0
             self.age_calls = 0
             self.show_calls = 0
             self.shade_calls = 0
 
-        def display(self):
+        def display(self) -> None:
             print(
                 f"Stats: {self.grow_calls} grow,"
-                f"{self.age_calls} age, {self.show_calls} show"
+                f" {self.age_calls} age, {self.show_calls} show"
                 )
 
     def __init__(
@@ -72,13 +72,13 @@ class Plant:
         self._plant_age = new_plant_age
 
     @staticmethod
-    def is_check_days(plant_age: int) -> str:
+    def is_check_days(plant_age: int) -> bool:
         return plant_age > 365
 
     @classmethod
     def anonymous_plant(
         cls,
-        name: str = "Unknown",
+        name: str = "Unknown plant",
         height: float = 0.0,
         plant_age: int = 0
     ) -> "Plant":
@@ -115,7 +115,7 @@ class Flower(Plant):
         self._height += 8
         self.stats.grow_calls += 1
 
-    def age_up(self):
+    def age_up(self) -> None:
         self.stats.age_calls += 1
 
     def bloom(self) -> None:
@@ -139,10 +139,10 @@ class Tree(Plant):
         super().__init__(name, height, plant_age)
         self._trunk_diameter = trunk_diameter
 
-    def grow(self):
+    def grow(self) -> None:
         self.stats.grow_calls += 1
 
-    def age_up(self):
+    def age_up(self) -> None:
         self.stats.age_calls += 1
 
     def produce_shade(self) -> None:
@@ -152,7 +152,7 @@ class Tree(Plant):
         )
         self.stats.shade_calls += 1
 
-    def show(self):
+    def show(self) -> None:
         super().show()
         print(f" Trunk diameter: {self._trunk_diameter}cm")
 
@@ -191,7 +191,7 @@ def show_statistics(plant: Plant) -> None:
     plant.stats.display()
 
     if isinstance(plant, Tree):
-        print(f"{plant.stats.shade_calls} shade")
+        print(f" {plant.stats.shade_calls} shade")
 
 
 if __name__ == "__main__":
@@ -206,6 +206,7 @@ if __name__ == "__main__":
     rose.bloom()
     show_statistics(rose)
     rose.grow()
+    print("[asking the rose to grow and bloom]")
     rose.bloom()
     show_statistics(rose)
 

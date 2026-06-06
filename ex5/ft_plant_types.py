@@ -7,7 +7,7 @@
 #   By: ariandri <ariandri@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/27 12:44:03 by ariandri            #+#    #+#            #
-#   Updated: 2026/05/22 14:59:46 by ariandri           ###   ########.fr      #
+#   Updated: 2026/06/06 11:50:54 by ariandri           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -115,7 +115,7 @@ class Tree(Plant):
                 f"{self._trunk_diameter}cm wide."
             )
 
-    def show(self):
+    def show(self) -> None:
         super().show()
         print(f" Trunk diameter: {self._trunk_diameter}cm")
 
