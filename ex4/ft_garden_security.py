@@ -7,7 +7,7 @@
 #   By: ariandri <ariandri@student.42antananarivo.   +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/04/14 08:53:42 by ariandri            #+#    #+#            #
-#   Updated: 2026/04/29 14:53:18 by ariandri           ###   ########.fr      #
+#   Updated: 2026/06/11 15:39:40 by ariandri           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -35,7 +35,7 @@ class Plant:
             print("Height update rejected")
             return
         print(f"Height updated: {new_height}cm")
-        self._height = float(new_height)
+        self._height = new_height + 0.0
 
     def get_age(self) -> int:
         return self._plant_age
